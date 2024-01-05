@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT UI</title>
+</head>
+<body>
+    <div>
+        <h1>ChatGPT UI</h1>
+        <form id="chat-form">
+            <label for="prompt">Enter your prompt:</label>
+            <input type="text" id="prompt" name="prompt" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="response-container"></div>
+    </div>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const prompt = document.getElementById('prompt').value;
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `prompt=${encodeURIComponent(prompt)}`,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('response-container').innerHTML = `<p>${data.response}</p>`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>

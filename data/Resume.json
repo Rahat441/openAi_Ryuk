@@ -1,0 +1,16 @@
+
+
+{
+    "documents": [
+      {
+        "id": "1",
+        "text": "This is the content of document 1."
+      },
+      {
+        "id": "2",
+        "text": "Here is the content of document 2."
+      }
+    ]
+  }
+  
+

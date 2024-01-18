@@ -1,4 +1,6 @@
 # OpenAiRyuk
+##Limitatioons:
+Only ~4000 tokens which means if its a Txt Data 300-400 lines is the limit.
 
 Simple script to use ChatGPT on your own files.
 
